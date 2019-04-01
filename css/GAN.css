@@ -1,0 +1,55 @@
+.TASK { /* Para las tareas creadas*/
+    background-color: red;
+    padding: 5px 5px 5px 5px;
+    border-radius: 20px;
+    display: block;
+    position: relative;
+    height: auto;
+}
+
+.TASK h2{ /* Para las tareas creadas*/
+    font-size: 15x;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.login{
+    text-align: center;
+    background-color: cadetblue;
+    border-radius: 10px;
+    border : solid red 2px;
+    width: 250px;
+    box-sizing: border-box;
+    padding: 18px;
+    padding-top: 0px;
+    margin-top: 0px;
+    display:none;
+}
+
+.login .element{
+    position:relative;
+    padding: 0;
+    margin-bottom: 15px;
+    
+}
+
+.login > form h2{
+    padding: 0;
+    margin: 0;
+    color: red;
+}
+
+
+.login .element input{
+    height: 22px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    
+}

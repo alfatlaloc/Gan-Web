@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+  <head>
+     
+      <link rel="stylesheet" href="css/GAN.css" type="text/css">
+      <meta charset=utf-8>
+      <script src="jss/Class.js"></script>
+      <title>GAN</title>
+    </head>
+      <body>
+          <article>
+              <h1 onclick="ChangeName(2018)">GAN</h1>
+              <button type="button" onclick="show_login()"> Add Task</button>
+              
+              <div class="login" id ="form">
+                  <form>
+                      <h2>Task INFO</h2>
+                      <div class="element">                      
+                          <input type="text" id="Name_Task" required="required">
+                          <span>Name</span>
+                      </div>
+                      <div class="element">                      
+                          <input type="text" id="S_Task" required="required">
+                          <span>Day Start</span>
+                      </div>
+                      <div class="element">                                           
+                          <input type="text" id="E_Task" required="required">
+                          <span>Day End</span>
+                      </div>
+                      <div class="element">                                           
+                          <button type="button" onclick="New_Task(Name_Task.value,null,S_Task.value,E_Task.value,Name_Task.value);hide_login()">
+                              Accept
+                          </button>
+                      </div>
+                      
+                  </form>
+              </div>
+              
+          </article>
+
+          
+
+      </body>
+    </html>
