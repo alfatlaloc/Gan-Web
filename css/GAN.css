@@ -5,7 +5,12 @@
     display: block;
     position: relative;
     height: auto;
+    width: 250px;
+    text-align: center;
+    padding: auto;
 }
+
+
 
 .TASK h2{ /* Para las tareas creadas*/
     font-size: 15x;
