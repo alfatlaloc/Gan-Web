@@ -1,3 +1,18 @@
+body {
+    background-color: #152d47;
+}
+
+h1{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    
+}
 .TASK { /* Para las tareas creadas*/
     background-color: red;
     padding: 5px 5px 5px 5px;
@@ -13,7 +28,7 @@
 
 
 .TASK h2{ /* Para las tareas creadas*/
-    font-size: 15x;
+    font-size: 13px;
     display: block;
     position: relative;
     margin: 0;
@@ -22,39 +37,93 @@
 
 .login{
     text-align: center;
-    background-color: cadetblue;
-    border-radius: 10px;
-    border : solid red 2px;
-    width: 250px;
+    align-content: center;
+    background-color: #0A0F17;
+    border-radius: 45px;
+    border: 2px solid dodgerblue;
+    width: 210px;
     box-sizing: border-box;
     padding: 18px;
-    padding-top: 0px;
-    margin-top: 0px;
+    padding-top: 5px;
+    margin: 0px;
+    padding-bottom: 0;
     display:none;
 }
 
 .login .element{
     position:relative;
     padding: 0;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 25px;
     
 }
 
 .login > form h2{
+    font-size: 20px;
     padding: 0;
-    margin: 0;
-    color: red;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: white;
 }
 
 
 .login .element input{
-    height: 22px;
+    height: 25px;
     width: 100%;
-    padding: 0 20px;
+    padding: px 20px;
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: 15px;
     outline: none;
-    border: 1px solid black;
     border-radius: 10px;
+    background: none;
+    border: 2px solid dodgerblue;
+    color:white;
+}
+
+.login .element span{
+    color:white;
+    position: absolute;
+    bottom :16px;
+    left: 0px;
+
+    background-color: #0A0F17;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+
+.login .element-button button{
+    background: none;
+    border: 2px solid dodgerblue;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 15px;
+    color: white;
+}
+
+.login .element-button button:hover{
+    transform: scale(1.025);
+}
+
+#login{
+    width: 120px;
+    padding: 5px;
+    background-color: #0A0F17;
+    height: auto;
+    border-radius: 15px;
+    text-transform: uppercase;
+    border:2px solid dodgerblue;
+    color: white;
+    font-size: 15px;
+}
+
+div[id="TASK_area"]{
+    margin-top: 15px;
     
+}
+#login:hover {
+background: #434343;
+letter-spacing: 1px;
+transition: all 0.4s ease 0s;
 }
