@@ -54,7 +54,6 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
 
 
 function Draw_Task(T_Name,T_Father,T_SD,T_ED){
-
     let art = document.createElement("article"); //Crea un articulo para la TASK y sus sub Task
     art.className="TASK"; //Clase TASK
     art.id=T_Name;    //Asigna el id de la tarea principal al articulo
@@ -67,5 +66,4 @@ function Draw_Task(T_Name,T_Father,T_SD,T_ED){
     t.value=0;      //Valor inicial a 0
     art.appendChild(t);     
     document.body.appendChild(art);//Agrega el articulo a body
-
 }
