@@ -14,10 +14,14 @@ h3{
     margin: 0;
     
 }
+
+
 .TASK { /* Para las tareas creadas*/
-    background-color: red;
+    background-color: #0A0F17;
     padding: 5px 5px 5px 5px;
-    border-radius: 20px;
+    border-radius: 10px;
+    border-radius: 45px;
+    border: 2px solid dodgerblue;
     display: block;
     position: relative;
     height: auto;
@@ -27,6 +31,20 @@ h3{
 }
 
 
+.TASK progress{
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.TASK progress[value]::-webkit-progress-bar{
+        background: none;
+}
+
+
+.TASK progress[value]::-webkit-progress-value {
+    border-radius: 10px;
+    background-color: #00f929;
+}
 
 .TASK h2{ /* Para las tareas creadas*/
     font-size: 13px;
