@@ -1,5 +1,6 @@
 body {
     background-color: #152d47;
+    color: white;
 }
 
 h1{
@@ -68,9 +69,10 @@ h3{
 
 
 .login .element input{
-    height: 25px;
+    height: 30px;
     width: 100%;
-    padding: px 20px;
+    padding-left: 5px;
+    padding-top: 3px;
     box-sizing: border-box;
     font-size: 15px;
     outline: none;
@@ -83,8 +85,8 @@ h3{
 .login .element span{
     color:white;
     position: absolute;
-    bottom :16px;
-    left: 0px;
+    bottom :20px;
+    left: -2px;
 
     background-color: #0A0F17;
     border-radius: 15px;
@@ -104,6 +106,8 @@ h3{
 
 .login .element-button button:hover{
     transform: scale(1.025);
+        border-color: white;
+
 }
 
 #login{
