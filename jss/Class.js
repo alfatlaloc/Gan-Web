@@ -3,83 +3,91 @@ function show_login(){//Muestra el Login
 }
 
 function hide_login(){//Muestra el Login
-    document.getElementById("form").style.display="none";
+    let formulalrio = document.getElementById("form");
+    formulalrio.style.display="none";
 }
-
-const task = (function() {
+function getInstances(){
+    return Task.prototype.getContador();
+}
+const Task = (function() {
   const _Name = new WeakMap(); //Nombre de la Tarea
   const _Father = new WeakMap();  //Tipo de tarea
   const _Start_Day = new WeakMap(); //Dia de incio
     const _End_Day = new WeakMap(); //Dia termino
-    const _ID = new WeakMap(); //Dia termino
+    const _ID = new WeakMap(); // Identificador
+    var contador = 1;
 
 
   class Task {
-  
-    constructor(T_Name,T_Father,T_SD,T_ED,T_ID) { //Construye el objeto con los valores definidos 
 
-    _Name.set(this, T_Name);
-      _Father.set(this, T_Father);
-    _ID.set(this,T_ID);
-      _Start_Day.set(this, T_SD);
-    _End_Day.set(this, T_ED);
-    } //End Constructor
+      constructor(T_Name,T_Father,T_SD,T_ED,T_ID) { //Construye el objeto con los valores definidos
+          _Name.set(this, T_Name);
+          _Father.set(this, T_Father);
+          _ID.set(this,T_ID);
+          _Start_Day.set(this, T_SD);
+          _End_Day.set(this, T_ED);
+          contador++;
+      } //End Constructor
 
-    getName() {
-      return _Name.get(this);
-    }
+      getName() {
+          return _Name.get(this);
+      }
 
-    setName(n){
-    	_Name.set(this,n);
-    }
-      
-    getStart_Day(){
-    	return _Start_Day.get(this);
-    }
-      
-    setStart_Day(n){
-    	_Start_Day.set(this,n);
-    }
+      setName(n){
+          _Name.set(this,n);
+      }
+
+      getContador(){
+          return contador;
+      }
+
+      getStart_Day(){
+          return _Start_Day.get(this);
+      }
+
+      setStart_Day(n){
+          _Start_Day.set(this,n);
+      }
       
       getEnd_Day(){
-    	return _End_Day.get(this);
-    }
-      
-    setEnd_Day(n){
-    	_End_Day.set(this,n);
-    }  
+          return _End_Day.get(this);
+      }
 
-            getID(){
-    	return _ID.get(this);
-    }
-      
-    setID(n){
-    	_ID.set(this,n);
-    }  
-      
+      setEnd_Day(n){
+          _End_Day.set(this,n);
+      }
+
+      getID(){
+          return _ID.get(this);
+      }
+
+      setID(n){
+          _ID.set(this,n);
+      }
   }
 return Task;
 }());
 
-
+// Funciones NO son partede la clase Task
 function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
-    let N_Task = new task(T_Name,T_Father,T_SD,T_ED,T_Id); //Constructor de nueva Tarea
+    let N_Task = new Task(T_Name,T_Father,T_SD,T_ED,T_Id); //Constructor de nueva Tarea
     Draw_Task(N_Task.getName(),N_Task.getStart_Day(),N_Task.getEnd_Day(),N_Task.getID());      //Dibuja la tarea en el documento
     console.log("El nombre: " + N_Task.getName());
     //let p = new Proyect("alfa");
     Tasks_Info();
     let p= new Proyect("alfa");
-    console.log(p.getarray.length);
-   // p.getarray.set(N_Task);
-        console.log(p.getarray.length);
+    console.log(p.getArray.length);
+   // p.getArray.set(N_Task);
+        console.log(p.getArray.length);
 
+    hide_login();
 }
 
 
-function Draw_Task(T_Name,T_SD,T_ED){
+function Draw_Task(T_Name,T_SD,T_ED, id){
     let art = document.createElement("article"); //Crea un articulo para la TASK y sus sub Task
-    art.className="TASK"; //Clase TASK
-    art.id=T_Name;    //Asigna el id de la tarea principal al articulo
+    art.className="TASK"; //Clase TASK - CSS
+    art.id=id;    //Asigna el id de la tarea principal al articulo
     let titulo = document.createElement("h2");
     let tnode = document.createTextNode(T_Name);
     titulo.appendChild(tnode);
@@ -88,6 +96,7 @@ function Draw_Task(T_Name,T_SD,T_ED){
     add_text_to_Draw_Task(art.id,T_SD);
     art.appendChild(document.createElement("br"));
     add_text_to_Draw_Task(art.id,T_ED);
+    art.appendChild(document.createElement("br"));
     let t = document.createElement("progress"); //Barra de progreso
     t.max=100;     //Valor maximo 100%
     t.value=25;      //Valor inicial a 0

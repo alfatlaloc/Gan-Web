@@ -18,7 +18,7 @@
               <button id="login" type="button" onclick="show_login()"> Add Task</button>
               
               <div class="login" id ="form">
-                  <form id="form1" onsubmit="New_Task(Name_Task.value,null,S_Task.value,E_Task.value,Name_Task.value);hide_login(); return false;">
+                  <form id="form1">
                       <h2>Task INFO</h2>
                       <div class="element">                      
                           <input type="text" id="Name_Task" required>
@@ -33,12 +33,12 @@
                           <span>Day End</span>
                       </div>
                       <div class="element-button">                                           
-                          <button type="submit" form="form1">
+                          <button type="reset" onclick="New_Task(Name_Task.value,null,S_Task.value,E_Task.value,getInstances());">
                               Accept
                           </button>
                       </div>
                       <div class="element-button">                                           
-                          <button type="button" onclick="hide_login()">
+                          <button type="reset" onclick="hide_login()">
                               Cancel
                           </button>
                       </div>
