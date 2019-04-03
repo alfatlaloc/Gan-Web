@@ -66,6 +66,13 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
     let N_Task = new task(T_Name,T_Father,T_SD,T_ED,T_Id); //Constructor de nueva Tarea
     Draw_Task(N_Task.getName(),N_Task.getStart_Day(),N_Task.getEnd_Day(),N_Task.getID());      //Dibuja la tarea en el documento
     console.log("El nombre: " + N_Task.getName());
+    //let p = new Proyect("alfa");
+    Tasks_Info();
+    let p= new Proyect("alfa");
+    console.log(p.getarray.length);
+   // p.getarray.set(N_Task);
+        console.log(p.getarray.length);
+
 }
 
 
@@ -85,7 +92,6 @@ function Draw_Task(T_Name,T_SD,T_ED){
     t.max=100;     //Valor maximo 100%
     t.value=25;      //Valor inicial a 0
     art.appendChild(t);
-
 }
 
 

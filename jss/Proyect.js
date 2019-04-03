@@ -1,24 +1,12 @@
 const Proyect = (function() {
   const _Name = new WeakMap(); //Nombre de la Tarea
-  const _Type = new WeakMap();  //Tipo de tarea
-  const _Start_Day = new WeakMap(); //Dia de incio
-    const _End_Day = new WeakMap(); //Dia termino
+    const _Tasks = new WeakMap([]);//Arreglo de Objetos
 
-  class Task {
+  class Proyect {
   
-    constructor(T_Name,T_Type,T_SD,T_ED) { //Construye el objeto con los valores definidos 
-
-_Name.set(this, T_Name);
-      _Type.set(this, T_Type);
-      _Start_Day.set(this, T_SD);
-        _End_Day.set(this, T_ED);
+    constructor(Proyect_Name) { //Construye el objeto con los valores definidos 
+        _Name.set(this, Proyect_Name);
     } //End Constructor
-
-    /*addDays3(nDays) {
-    	let dia=_days3.get(this);
-    	dia=dia+nDays;
-      _days3.set(this, dia );
-    }*/
 
     getName() {
       return _Name.get(this);
@@ -28,13 +16,19 @@ _Name.set(this, T_Name);
     	_Name.set(this,n);
     }
       
-    getStart_Day(){
-    	return _Start_Day.get(this);
+      getarray(){
+          return _Tasks;
+      }
+      
+    add_Task_to_Proyect(){
+        
     }
       
-    setStart_Day(n){
-    	_Start_Day.set(this,n);
-    }
   }
 return Proyect;
 }());
+
+function Tasks_Info(){
+    console.log("Corri");
+
+}
