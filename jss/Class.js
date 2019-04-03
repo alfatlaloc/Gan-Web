@@ -1,4 +1,4 @@
-function show_login(){//Muestra el Login
+function show_login() {//Muestra el Login
     document.getElementById("form").style.display="flex";
 }
 
