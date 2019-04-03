@@ -17,17 +17,16 @@ h3{
 
 
 .TASK { /* Para las tareas creadas*/
+    display: inline-block;
     background-color: #0A0F17;
-    padding: 5px 5px 5px 5px;
-    border-radius: 10px;
     border-radius: 45px;
     border: 2px solid dodgerblue;
-    display: block;
     position: relative;
     height: auto;
-    width: 250px;
     text-align: center;
     padding: auto;
+    width: 33%;
+    margin-bottom: 1.5%;
 }
 
 
@@ -142,7 +141,8 @@ h3{
 
 div[id="TASK_area"]{
     margin-top: 15px;
-    
+    display: inline-block;
+    width: 100%;
 }
 #login:hover {
 background: #434343;
