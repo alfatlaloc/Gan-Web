@@ -3,6 +3,7 @@ function load(){
 const l = new Loader();
             l.require([
                 "jss/Class.js",
+                "jss/extras.js",
                 "jss/Proyect.js"], 
                 function() {
                     // Callback

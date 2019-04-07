@@ -20,11 +20,12 @@ const Proyect = (function() {
         return _Tasks;
     }
 
-    add_Task_to_Proyect(n_task){
+    add_Task_to_Proyect(n_task){ //Agrega un objeto al arreglo 
         _Tasks.push(n_task);
     }
-      
   }
+    
+    
 return Proyect;
 }());
 

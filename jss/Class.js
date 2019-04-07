@@ -1,14 +1,9 @@
-function show_login() {//Muestra el Login
-    document.getElementById("form").style.display="flex";
-}
 
-function hide_login(){//Muestra el Login
-    let formulalrio = document.getElementById("form");
-    formulalrio.style.display="none";
-}
 function getInstances(){
     return Task.prototype.getContador();
 }
+
+
 const Task = (function() {
   const _Name = new WeakMap(); //Nombre de la Tarea
   const _Father = new WeakMap();  //Tipo de tarea
@@ -77,9 +72,9 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
     Tasks_Info();
     let p= new Proyect("alfa");
     console.log(p.getArray.length);
-   // p.getArray.set(N_Task);
-        console.log(p.getArray.length);
-
+    console.log(p);
+    p.add_Task_to_Proyect(N_Task);
+    console.log(p.getArray.length);
     hide_login();
 }
 
@@ -101,6 +96,7 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     t.max=100;     //Valor maximo 100%
     t.value=25;      //Valor inicial a 0
     art.appendChild(t);
+    //add_popup(T_Name):
 }
 
 
@@ -110,6 +106,21 @@ function add_text_to_Draw_Task(art_id,text){
     texto.appendChild(t);
     let art = document.getElementById(art_id);
     art.appendChild(texto);
+}
+
+
+function add_popup(element_id){
+    let div1 = document.createElement("div");
+    div1.className="popup";
+    //div.onclick=function(){ popup("popup"+element_id)};
+    let t = document.createTextNode("PopupTest");
+    div1.appendChild(t);
+    let span1 =document.createElement("span");
+    span1.className="popuptext";
+    //span.id="popuop"+element_id;
+    span1.appendChild(t);
+    div1.appendChild(span1);
+    document.getElementById(element_id).appendChild(div1);
 }
 
 

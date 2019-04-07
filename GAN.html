@@ -4,13 +4,15 @@
      
       <link rel="stylesheet" href="css/GAN.css" type="text/css">
      <link rel="stylesheet" href="css/Tab.css" type="text/css">
+           <link rel="stylesheet" href="css/popup.css" type="text/css">
+
       <meta charset=utf-8>
       <script src="jss/loader.js"></script>
      <script src="jss/d_calendar.js"></script>
       
       <title>GAN</title>
     </head>
-      <body onload="load()">
+      <body onload="load()" >
           <article id="art_log">
               <h1 onclick="ChangeName(2018)">GAN</h1>
               <h3>Marco Antonio castro Gutierrez</h3>
@@ -18,27 +20,27 @@
               <button id="login" type="button" onclick="show_login()"> Add Task</button>
               
               <div class="login" id ="form">
-                  <form id="form1">
+                  <form id="form1" onsubmit="New_Task(Name_Task.value,null,S_Task.value,E_Task.value,getInstances());reset_login(); return false;">
                       <h2>Task INFO</h2>
                       <div class="element">                      
                           <input type="text" id="Name_Task" required>
-                          <span>Name</span>
+                          <span class="tit">Name</span>
                       </div>
                       <div class="element">                      
-                          <input type="text" id="S_Task"  onclick="start(this.id);d_table()" name="day_S" required>
-                          <span>Day Start</span>
+                          <input type="text" id="S_Task"  onfocus="start(this.id);d_table();" name="day_S" autocomplete="off" required>
+                          <span class="tit">Day Start</span>
                       </div>
                       <div class="element">                                           
-                          <input type="text" id="E_Task" onclick="start(this.id);d_table()" name="day_E" required>
-                          <span>Day End</span>
+                          <input type="text" id="E_Task" onfocus="start(this.id);d_table();" name="day_E" autocomplete="off" required>
+                          <span class="tit">Day End</span>
                       </div>
-                      <div class="element-button">                                           
-                          <button type="reset" onclick="New_Task(Name_Task.value,null,S_Task.value,E_Task.value,getInstances());">
+                      <div class="element-button">
+                          <button type="submit" form="form1" >
                               Accept
                           </button>
                       </div>
                       <div class="element-button">                                           
-                          <button type="reset" onclick="hide_login()">
+                          <button type="reset" onclick="hide_login();h_table()">
                               Cancel
                           </button>
                       </div>

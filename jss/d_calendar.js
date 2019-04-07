@@ -107,7 +107,8 @@ function calendar(year,month,id_picker){
     calendar.appendChild(tit);//Agrega los elementos creados al calendario
     calendar.appendChild(te);
     calendar.append(tbo);
-    document.getElementById("art_log").appendChild(calendar);
+    //document.body.appendChild(calendar);
+    document.getElementById(id_picker).parentNode.insertBefore( calendar, this.nextSibling );
     calendar_w(yyyy,mm,id_picker);  //Llama a la funcion que rellena la tabla conforme cambia  
 }
 

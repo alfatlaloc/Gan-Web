@@ -15,7 +15,6 @@ h3{
     
 }
 
-
 .TASK { /* Para las tareas creadas*/
     display: inline-block;
     background-color: #0A0F17;
@@ -28,7 +27,6 @@ h3{
     width: 33%;
     margin-bottom: 1.5%;
 }
-
 
 .TASK progress{
     border: 2px solid white;
@@ -53,6 +51,7 @@ h3{
     padding: 0;
 }
 
+
 .login{
     text-align: center;
     align-content: center;
@@ -73,10 +72,10 @@ h3{
     padding: 0;
     margin-top: 5px;
     margin-bottom: 25px;
-    
 }
 
 .login > form h2{
+    z-index: -1
     font-size: 20px;
     padding: 0;
     margin-top: 0;
@@ -98,17 +97,22 @@ h3{
     border: 2px solid dodgerblue;
     color:white;
 }
-
-.login .element span{
+.login .element .tit{
     color:white;
     position: absolute;
     bottom :20px;
     left: -2px;
-
     background-color: #0A0F17;
     border-radius: 15px;
     padding: 5px;
 }
+
+
+#TASK_area{
+    display: inline; 
+    
+}
+
 
 
 .login .element-button button{
@@ -128,8 +132,7 @@ h3{
 }
 
 #login{
-    width: 120px;
-    padding: 5px;
+    width: 120px;    padding: 5px;
     background-color: #0A0F17;
     height: auto;
     border-radius: 15px;
