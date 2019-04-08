@@ -68,8 +68,6 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
     let N_Task = new Task(T_Name,T_Father,T_SD,T_ED,T_Id); //Constructor de nueva Tarea
     Draw_Task(N_Task.getName(),N_Task.getStart_Day(),N_Task.getEnd_Day(),N_Task.getID());      //Dibuja la tarea en el documento
     console.log("El nombre: " + N_Task.getName());
-    //let p = new Proyect("alfa");
-    Tasks_Info();
     let p= new Proyect("alfa");
     console.log(p.getArray.length);
     console.log(p);
@@ -77,7 +75,6 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
     console.log(p.getArray.length);
     hide_login();
 }
-
 
 function Draw_Task(T_Name,T_SD,T_ED, id){
     let art = document.createElement("article"); //Crea un articulo para la TASK y sus sub Task
@@ -96,12 +93,11 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     t.max=100;     //Valor maximo 100%
     t.value=25;      //Valor inicial a 0
     art.appendChild(t);
-    //add_popup(T_Name):
 }
 
 
-function add_text_to_Draw_Task(art_id,text){
-    let texto=document.createElement("span");
+function add_text_to_Draw_Task(art_id,text){// Agrega un texto a la tarea, Recibe el id de la tarea y el texto
+    let texto=document.createElement("span"); //Guarda el texto dentro de un span
     let t = document.createTextNode(text);
     texto.appendChild(t);
     let art = document.getElementById(art_id);

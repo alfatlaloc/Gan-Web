@@ -148,11 +148,11 @@ function calendar_w(year,month,id_picker){//Cambia los elementos en el calendari
                 tt.innerText=String(dia);
                 tt.id="hoy";
                 table.rows[i].cells[j].appendChild(tt);
-                table.rows[i].cells[j].onclick=function() { pick(this.innerText,id_picker);h_table()};//agrega funcion al span creado
+                table.rows[i].cells[j].onclick=function() { pick(this.innerText,id_picker);destroy_table()};//agrega funcion al span creado
                 dia++;
             }else if(count>=start &&  (dia <= meses_dias[mm])){   
                 table.rows[i].cells[j].innerText=String(dia);
-                table.rows[i].cells[j].onclick=function() { pick(this.innerText,id_picker) ; h_table()};//Coloca el dia y la funcion al daypicker
+                table.rows[i].cells[j].onclick=function() { pick(this.innerText,id_picker) ; destroy_table()};//Coloca el dia y la funcion al daypicker
                 table.rows[i].cells[j].onmousedown = function(event) {
                 if (event.which == 2) { ev(this.id);}};
                 dia++;
@@ -199,6 +199,9 @@ openForm();
 
 }
 
+function destroy_table(){
+    document.getElementById("calendar").remove();
+}
 //oculta la tabla
 function h_table(){
     document.getElementById("calendar").setAttribute("style","display:none");    
@@ -208,10 +211,3 @@ function start(id_picker){
  calendar(yyyy,mm,id_picker);
 };
 
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
