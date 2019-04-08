@@ -1,92 +1,63 @@
-th {
-			background-color:#006699;
-			color:#fff;
-			width:30px;
-}
-
-#calendar{
-    z-index: 2;
-    display:none;
-      position: absolute;
-      cursor: pointer;
-    border : 2px solid dodgerblue;
-    background-color: #0A0F17;
-}
-caption p{
-    border-radius: 50px;
-    border: solid 2px white;
-    display: inline-block;
-    margin: 2px 2px 2px 2px;
-    padding: 2px 2px 2px 2px;
-
-}
-
-#calendar div{
-    background-color: #0A0F17;
-    border-radius: 15px;
-}
-
-#calendar tr.days td{
-      border: 2px solid dodgerblue;
-        border:collapse;
-       height: auto;
-    width: 50px;
-    background-color: #0A0F17;
-    color : white;
-
-}
-
-#calendar #hoy{
-    border-radius: 50px;
-    background-color:#4f9da6;
-    padding-left: 5px;
-    padding-right: 5px;
-
-}
-
-#calendar #hoy:hover{
-    color : white;
-}
-
-input[id="daypicker"]{
-    display:block;
-}
-
-td:hover{
-    color : white;
-}
-
-#calendar td {
-        border-radius: 10px;
-    text-align: center;
-}
-
+/* Estilo en general de la tabla*/
 #calendar {
-    border-radius: 10px;
-    background-color:#0A0F17;
-    color : white;
+    z-index: 2; /* Para superponer el calendario ante todos los elementos al mostrarse*/
+    display:none; /* Oculto al incio*/
+    position: absolute; /* Mostrar como "popup" alado del elemento*/
+    cursor: pointer; /* Cambia el cursos al dedito*/
+    border : 2px solid dodgerblue;  /* Borde de los elementos azul*/
+    background-color: #0A0F17; /* Background general  */
+    color:white; /* Color de las letras dentro de la tabla */
+    border-radius: 15px; /* Radio del los bordes*/
+    border:collapse; /* Estilo del border */
 }
 
+/* Titutlo */
 #calendar caption{
-    color : white;
-    border-radius: 10px;
-          border: 1px solid dodgerblue;
+    border-radius: 10px; /* Radio Borde */
+    border: 1px solid dodgerblue; /* Color de Borde */
     background-color: #0A0F17;
 }
 
+#calendar caption p{ /* Para el titulo */
+    margin: 2px 2px 2px 2px; /* Espaciado al caption */
+    padding: 2px 2px 2px 2px;   
+}
+
+/* Para los dias*/
+#calendar tr.days > td{
+    border: 2px solid dodgerblue; /* Bordes color azul */
+    width: 50px; /* tamaño de las celdas dias */
+}
+
+#calendar #hoy{ /* Dia actual*/
+    border-radius: 50px;    /* Borde elemento hoy */
+    background-color:#4f9da6; /* Color de fondo dia actual */
+    padding-left: 5px;  /* Espaciado */
+    padding-right: 5px;
+}
+
+/* Sobre el dia actual*/
+#calendar #hoy:hover{
+    color : dodgerblue; /* Cambia el color dia actual*/
+}
+
+td:hover{ /* Sobre una celda*/
+    color : dodgerblue; /* Color numeros en el dia */
+}
+
+
+#calendar td { /* Celdas en el calendario*/
+    border-radius: 10px; /* Bordes para las celdas */
+    text-align: center; /* Ajuste de texto*/
+}
+
+/* Cambiar mes*/
 #calendar th{
-    border-radius: 20px;
-    background-color: #0A0F17;
+    border-radius: 10px; /* Borde */
     border: solid 2px dodgerblue;
-    color : white;
-    
 }
 
-th{
-    background-color: white;
-}
-
-
+/* Sobre flechas*/
 #calendar span[class="arrow"]:hover{    
-    color : white;
+    color : dodgerblue; /* Color */
 }

@@ -109,21 +109,5 @@ function add_text_to_Draw_Task(art_id,text){
 }
 
 
-function add_popup(element_id){
-    let div1 = document.createElement("div");
-    div1.className="popup";
-    //div.onclick=function(){ popup("popup"+element_id)};
-    let t = document.createTextNode("PopupTest");
-    div1.appendChild(t);
-    let span1 =document.createElement("span");
-    span1.className="popuptext";
-    //span.id="popuop"+element_id;
-    span1.appendChild(t);
-    div1.appendChild(span1);
-    document.getElementById(element_id).appendChild(div1);
-}
-
-
-
 
 
