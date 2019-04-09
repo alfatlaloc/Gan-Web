@@ -91,10 +91,21 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     art.appendChild(document.createElement("br"));
     let t = document.createElement("progress"); //Barra de progreso
     t.max=100;     //Valor maximo 100%
-    t.value=25;      //Valor inicial a 0
+    t.value=0;      //Valor inicial a 0
     art.appendChild(t);
+    add_Button_to_Task(art,'Advance','Advance');
 }
 
+
+function add_Button_to_Task(Task_id,text_b,class_b){
+    let b =document.createElement("button");
+    b.type="button";
+    b.innerText=text_b;
+    b.className=class_b;
+    b.onclick=function() {advance(this,10)};
+    Task_id.appendChild(document.createElement("br"));
+    Task_id.appendChild(b);
+}
 
 function add_text_to_Draw_Task(art_id,text){// Agrega un texto a la tarea, Recibe el id de la tarea y el texto
     let texto=document.createElement("span"); //Guarda el texto dentro de un span
@@ -103,7 +114,5 @@ function add_text_to_Draw_Task(art_id,text){// Agrega un texto a la tarea, Recib
     let art = document.getElementById(art_id);
     art.appendChild(texto);
 }
-
-
 
 

@@ -13,7 +13,13 @@ function reset_login(){ //LImpia los campos del formulario
     document.getElementById("E_Task").value="";
 }
 
-function popup(id_popup) {
-  var popup = document.getElementById(id_popup);
-  popup.classList.toggle("show");
+function advance(element,v){
+    //let padrex = element.parentNode.id;
+    let p = element.previousSibling.previousSibling;
+    p.value=p.value+v;
+    if(parseInt(p.value)>=100){
+        p.className="Task_F";
+        element.remove();
+    }
+
 }

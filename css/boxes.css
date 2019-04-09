@@ -1,0 +1,23 @@
+#art_log{
+        position: fixed;
+        width: 13.5em;
+        height: auto;
+        top: 15%;
+        right: auto;
+        bottom: 100px;
+        left: 0;
+        border: 2px solid dodgerblue;      
+}
+
+#TASK_area{
+        z-index: -1; /* Para superponer el calendario ante todos los elementos al mostrarse*/
+        position: fixed;
+        width: auto;
+        height: auto;
+        top: 15%;
+        right: 0;
+        bottom: 100px;
+        left: 13.6em;
+        border: 2px solid dodgerblue;      
+    
+}

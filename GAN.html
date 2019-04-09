@@ -4,6 +4,7 @@
      
       <link rel="stylesheet" href="css/GAN.css" type="text/css">
      <link rel="stylesheet" href="css/Tab.css" type="text/css">
+     <link rel="stylesheet" href="css/boxes.css" type="text/css">
 
       <meta charset=utf-8>
       <script src="jss/loader.js"></script>
@@ -12,11 +13,13 @@
       <title>GAN</title>
     </head>
       <body onload="load()" >
-          <article id="art_log">
+          <div id="header">
               <h1 onclick="ChangeName(2018)">GAN</h1>
               <h3>Marco Antonio castro Gutierrez</h3>
-              <h3>Arturo Morgado Jimenez</h3>
-              <button id="login" type="button" onclick="show_login()"> Add Task</button>
+              <h3>Arturo Morgado Jimenez</h3>          
+          </div>
+          <article id="art_log">
+          <button id="login" type="button" onclick="show_login()"> Add Task</button>
               
               <div class="login" id ="form">
                   <form id="form1" onsubmit="New_Task(Name_Task.value,null,S_Task.value,E_Task.value,getInstances());reset_login(); return false;">
