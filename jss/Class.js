@@ -3,6 +3,7 @@ function getInstances(){
     return Task.prototype.getContador();
 }
 
+const proj = new Proyect("alfa");
 
 const Task = (function() {
   const _Name = new WeakMap(); //Nombre de la Tarea
@@ -65,15 +66,18 @@ return Task;
 
 // Funciones NO son partede la clase Task
 function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
+
+
+
     let N_Task = new Task(T_Name,T_Father,T_SD,T_ED,T_Id); //Constructor de nueva Tarea
     Draw_Task(N_Task.getName(),N_Task.getStart_Day(),N_Task.getEnd_Day(),N_Task.getID());      //Dibuja la tarea en el documento
     console.log("El nombre: " + N_Task.getName());
-    let p= new Proyect("alfa");
-    console.log(p.getArray.length);
-    console.log(p);
-    p.add_Task_to_Proyect(N_Task);
-    console.log(p.getArray.length);
+    console.log(proj.getArray.length);
+    console.log(proj);
+    proj.add_Task_to_Proyect(N_Task);
+    console.log(proj.getArray.length);
     hide_login();
+    reset_login();
 }
 
 function Draw_Task(T_Name,T_SD,T_ED, id){

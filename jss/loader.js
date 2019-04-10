@@ -2,9 +2,9 @@
 function load(){
 const l = new Loader();
             l.require([
+                "jss/Proyect.js",
                 "jss/Class.js",
-                "jss/extras.js",
-                "jss/Proyect.js"], 
+                "jss/extras.js"],
                 function() {
                     // Callback
                     console.log('All Scripts Loaded');
