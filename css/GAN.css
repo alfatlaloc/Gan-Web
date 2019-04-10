@@ -3,16 +3,7 @@ body {
     color: white;
 }
 
-h1{
-    text-align: center;
-}
 
-h3{
-    text-align: center;
-    font-size: 12px;
-    padding: 0;
-    margin: 0;   
-}
 
 #TASK_area{
     display: inline; 
@@ -83,12 +74,9 @@ h3{
     background-color: #0A0F17;
     border-radius: 45px;
     border: 2px solid dodgerblue;
-    width: 210px;
+    width: 100%;
     box-sizing: border-box;
-    padding: 18px;
-    padding-top: 5px;
-    margin: 0px;
-    padding-bottom: 0;
+    padding: 1% 10% 0;
     display:none;
 }
 
@@ -149,21 +137,17 @@ h3{
 }
 
 #login{
-    width: 120px;    padding: 5px;
+    width: 80%;
+    padding: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
     background-color: #0A0F17;
-    height: auto;
     border-radius: 15px;
     text-transform: uppercase;
     border:2px solid dodgerblue;
     color: white;
-    font-size: 15px;
 }
 
-div[id="TASK_area"]{
-    margin-top: 15px;
-    display: inline-block;
-    width: 100%;
-}
 #login:hover {
 background: #434343;
 letter-spacing: 1px;

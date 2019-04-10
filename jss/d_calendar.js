@@ -209,5 +209,5 @@ function h_table(){
 //Arranca todo
 function start(id_picker){
  calendar(yyyy,mm,id_picker);
-};
+}
 
