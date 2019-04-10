@@ -18,7 +18,14 @@ const Task = (function() {
 
       constructor(T_Name,T_Father,T_SD,T_ED,T_ID) { //Construye el objeto con los valores definidos
           _Name.set(this, T_Name);
-          _Father.set(this, T_Father);
+          if(T_Father === "none")
+              _Father.set(this, null);
+          else{
+              _Father.set(this, T_Father);
+              let arreglo = proj.getArray();
+              // let padre = arreglo.find(T_Father);
+              console.log(arreglo);
+          }
           _ID.set(this,T_ID);
           _Start_Day.set(this, T_SD);
           _End_Day.set(this, T_ED);

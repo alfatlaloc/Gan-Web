@@ -27,8 +27,7 @@ function advance(element,v){
 function fillSelect() {
     let tareas = document.getElementById("father"); // caja de opciones
     // llena las tareas que existen para añadir tareas hijas
-    while(tareas.firstChild)
-        tareas.removeChild(tareas.firstChild);
+    clean_select(tareas);
     let none = document.createElement("option");
     let _task_array;
     none.value = "none";
@@ -41,4 +40,8 @@ function fillSelect() {
         opcion.innerText =  _task_array[i].getName();
         tareas.appendChild(opcion);
     }
+}
+function clean_select(tareas){
+    while(tareas.firstChild)
+        tareas.removeChild(tareas.firstChild);
 }

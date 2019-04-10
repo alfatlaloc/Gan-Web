@@ -28,16 +28,11 @@
               <section id="art_log">
                   <button id="login" type="button" onclick="show_login()"> Add Task</button>
                   <div class="login" id ="form">
-                      <form id="form1" onsubmit="New_Task(Name_Task.value,null,S_Task.value,E_Task.value,getInstances()); return false;">
+                      <form id="form1" onsubmit="New_Task(Name_Task.value,father.value,S_Task.value,E_Task.value,getInstances()); return false;">
                           <h2>Task INFO</h2>
                           <div class="element">
                               <input type="text" id="Name_Task" required>
                               <span class="tit">Name</span>
-                          </div>
-                          <div class="element">
-                              <select type="text" id="father" name="father">
-                              </select>
-                              <span class="tit">Father Task</span>
                           </div>
                           <div class="element">
                               <input type="text" id="S_Task"  onfocus="start(this.id);d_table();" name="day_S" autocomplete="off" required>
@@ -46,6 +41,11 @@
                           <div class="element">
                               <input type="text" id="E_Task" onfocus="start(this.id);d_table();" name="day_E" autocomplete="off" required>
                               <span class="tit">Day End</span>
+                          </div>
+                          <div class="element">
+                              <select type="text" id="father" name="father">
+                              </select>
+                              <span class="tit">Father Task</span>
                           </div>
                           <div class="element-button">
                               <button type="submit" form="form1" >
