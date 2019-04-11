@@ -73,19 +73,16 @@ return Task;
 
 // Funciones NO son partede la clase Task
 function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
+
+
+
     let N_Task = new Task(T_Name,T_Father,T_SD,T_ED,T_Id); //Constructor de nueva Tarea
-    if(T_Father=="none")
-    {
     Draw_Task(N_Task.getName(),N_Task.getStart_Day(),N_Task.getEnd_Day(),N_Task.getID());      //Dibuja la tarea en el documento
     console.log("El nombre: " + N_Task.getName());
     console.log(proj.getArray.length);
     console.log(proj);
     proj.add_Task_to_Proyect(N_Task);
     console.log(proj.getArray.length);
-    }else
-    {
-        Draw_Child(T_Father,T_SD,T_ED,T_Name);
-    }
     hide_login();
     reset_login();
 }
@@ -108,13 +105,6 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     t.value=0;      //Valor inicial a 0
     art.appendChild(t);
     add_Button_to_Task(art,'Advance','Advance');
-    let C_div = document.createElement("div");
-    C_div.id=id+"childs";
-    C_div.className="TASK_Child";
-    //C_div.appendChild(titulo);
-    art.appendChild(C_div);
-    
-    
 }
 
 
@@ -133,16 +123,7 @@ function add_text_to_Draw_Task(art_id,text){// Agrega un texto a la tarea, Recib
     let t = document.createTextNode(text);
     texto.appendChild(t);
     let art = document.getElementById(art_id);
-    art.appendChild(texto); //Agrega texto al articulo
+    art.appendChild(texto);
 }
 
 
-function Draw_Child(Father,T_SD,T_ED,Name){
-    console.log("ENtre");
-    father=father+"childs";
-    let art = document.getElementById(father);
-    let titulo = document.createElement("h3");
-    let t = document.createTextNode("elkakas");
-    titulo.appendChild(t);
-    art.appendChild(titulo);
-}

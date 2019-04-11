@@ -12,6 +12,10 @@ body {
 
 /* Empiezan TASK*/
 
+.TASK_Child{
+        border: 2px solid dodgerblue;
+        border-radius: 45px;
+}
 
 .TASK { /* Para las tareas creadas*/
     display: inline-block;
