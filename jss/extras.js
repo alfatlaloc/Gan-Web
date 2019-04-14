@@ -19,9 +19,9 @@ function advance(element,v){
     p.value=p.value+v;
     if(parseInt(p.value)>=100){
         p.className="Task_F";
+        p.value=100;
         element.remove();
     }
-
 }
 
 function fillSelect() {

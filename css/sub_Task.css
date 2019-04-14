@@ -1,0 +1,20 @@
+.TASK_Child{ /* Paralos divs dentro de las tareas*/
+    border: 2px solid dodgerblue;
+    border-radius: 35px;
+    width: 90%;
+    align-content: center;
+    text-align: center;
+    display:inherit;
+    margin-top:15px; 
+}
+
+.TASK_Child > h3{
+    font-size: 15px;
+}
+
+
+.TASK_Child > div {
+    
+}
+
+
