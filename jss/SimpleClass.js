@@ -17,10 +17,10 @@ this._day=function(nDays) {
       } else {
       	_day=_day+nDays;
       }
-  }
+  };
 this.getDay=function() {
       return _day;
-    }
+    };
 }
 }
   
@@ -30,10 +30,10 @@ function ejemploOO1(yy,mm,dd){
 	console.log("año: "+ yy);
 	console.log("mes: "+ mm);
 	console.log("dia: "+ dd);
-	let constructor1=new SimpleDate(2019,03,21);
+	let constructor1=new SimpleDate(2019,3,21);
 	constructor1._day(2);
 	
-	let constructor2=new SimpleDate(2019,03,25);
+	let constructor2=new SimpleDate(2019,3,25);
 	console.log("El día 1es: " + constructor1.getDay());
 	console.log("El día 2es: " + constructor2.getDay());
 	constructor1._day(3);
@@ -47,7 +47,7 @@ función Symbol();
 
 const SimpleDate2 = (function() {
 	const _yearKey = Symbol();
-  	const _monthK ey = Symbol();
+  	const _monthKey = Symbol();
   	const _dayKey = Symbol();
 
   class SimpleDate2 {
@@ -79,10 +79,10 @@ function ejemploOO2(yy,mm,dd){
 	console.log("año: "+ yy);
 	console.log("mes: "+ mm);
 	console.log("dia: "+ dd);
-	let constructor3=new SimpleDate2(2019,03,21);
+	let constructor3=new SimpleDate2(2019,3,21);
 	constructor3.addDays2(2);
 	
-	let constructor4=new SimpleDate2(2019,03,25);
+	let constructor4=new SimpleDate2(2019,3,25);
 	
 	console.log("El día 2es: " + constructor4.getDay2());
 	console.log("El día 1es: " + constructor3.getDay2());
@@ -147,10 +147,10 @@ function ejemploOO3(yy,mm,dd){
 	console.log("año: "+ yy);
 	console.log("mes: "+ mm);
 	console.log("dia: "+ dd);
-	let constructor5=new SimpleDate3(2019,03,21);
+	let constructor5=new SimpleDate3(2019,3,21);
 	constructor5.addDays3(3);
 	
-	let constructor6=new SimpleDate3(2019,03,25);
+	let constructor6=new SimpleDate3(2019,3,25);
 	
 	console.log("El día 2es: " + constructor6.getDay3());
 	console.log("El día 1es: " + constructor5.getDay3());
