@@ -17,7 +17,7 @@ function advance(element,avance){
     console.log(element.parentNode.id);
 
     let tarea_a_avanzar = TaskbyId(element.parentNode.id.toString());
-    let progress_bar = element.previousSibling.previousSibling;
+    let progress_bar = element.previousSibling;
     progress_bar.value = progress_bar.value+avance;
     if(parseInt(progress_bar.value)>=100){
         progress_bar.className = "Task_F";

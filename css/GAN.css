@@ -19,17 +19,18 @@ body {
     border: 2px solid dodgerblue;
     position: relative;
     height: auto;
-    text-align: center;
+    text-align: left;
     padding-bottom: 1%;
+    padding-left: 1.5%;
     padding-top: 1%;
-    width: 33%;
+    width: 98%;
     margin-bottom: 1.5%;
 }
 
 .TASK progress{
     border: 2px solid white;
     border-radius: 10px;
-    width: 70%;
+    width: 30%;
 }
 
 .TASK progress[value]::-webkit-progress-bar{
@@ -51,12 +52,12 @@ body {
 
 /* Advance Button*/
 .Advance{
-    align-content: center;
     border: 2px solid dodgerblue;
     border-radius: 10px;
     background: none;
     color:white;
     margin-top: 10px;
+    display: inline-block;
 }
 
 /* Advance Button*/

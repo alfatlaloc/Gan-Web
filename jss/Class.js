@@ -15,7 +15,6 @@ const Task = (function() {
     // const _children = Symbol();
     var contador = 0;
 
-
   class Task {
 
       constructor(T_Name,T_Father,T_SD,T_ED,T_ID) { //Construye el objeto con los valores definidos
@@ -137,10 +136,9 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     add_text_to_Draw_Task(art,T_ED);
     add_Progress_Bar(art);
     add_Button_to_Task(art,'Advance','Advance');
-    id=T_Name+"childs";
-    add_div(art,id);  //Agrega la divison de las subtareas
-    HoD_subTask(art,id);
-
+    id=id+"childs";
+    let c = add_div(art,id);  //Agrega la divison de las subtareas
+    HoD_subTask(c,id);
 }
 
 function add_Progress_Bar(Task){ //Añade una barra de progreso al elemento indicado
@@ -154,13 +152,14 @@ function add_Progress_Bar(Task){ //Añade una barra de progreso al elemento indi
 
 function add_div(art,id){ //Agrega una división a un elemento
     let C_div = document.createElement("div");
+    art.appendChild(C_div);
     C_div.id=id;
     C_div.className="TASK_Child";
-    let test = document.createElement("h3");
+/*    let test = document.createElement("h3");
     test.innerText="SubTasks";
-    C_div.appendChild(test);
+    C_div.appendChild(test); */
     C_div.setAttribute("style","display:none");   
-    art.appendChild(C_div);
+    return C_div;
 }
 
 function HoD_subTask(art,id_st){ //Para mostrar/ocultar las subtareas
@@ -170,7 +169,8 @@ function HoD_subTask(art,id_st){ //Para mostrar/ocultar las subtareas
     b.innerText="Show STasks";  //El estado inicial
     b.className='Advance';      //Para el css
     b.onclick=function(){s_tasks(this,div_c)}; //Asigna la funcion que cambia el estado
-    art.appendChild(b); //Agrega al articulo de la Tarea
+    art.parentNode.insertBefore(b,art);
+//    art.previousSibling.append(b); //Agrega al articulo de la Tarea
 }
 
 function s_tasks(button,div_c){ //Cambia el botun de Mostrar/Ocultar Tareas
@@ -189,7 +189,7 @@ function add_Button_to_Task(Task_of_button,text_b,class_b){
     boton_de_progreso.innerText = text_b;
     boton_de_progreso.className = class_b;
     boton_de_progreso.onclick = function() {advance(this,10)};
-    Task_of_button.appendChild(document.createElement("br"));
+    //Task_of_button.appendChild(document.createElement("br"));
     Task_of_button.appendChild(boton_de_progreso);
 }
 
@@ -202,8 +202,9 @@ function add_text_to_Draw_Task(art,text) {// Agrega un texto a la tarea, Recibe 
 
 
 function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tarea
-    let div_c = document.getElementById(Father); //Obtiene el Div de los hijos de la tarea padre
-    div_c.setAttribute("style","display:inherit");  //Lo muestra al agregar una nueva subtarea
+    //console.log(Father+'childs');    
+    let div_c = document.getElementById(Father+'childs'); //Obtiene el Div de los hijos de la tarea padre
+    //div_c.setAttribute("style","display:inherit");  //Lo muestra al agregar una nueva subtarea
     let Task_Div = document.createElement("div");   //Crea una nueva division individual para cada tarea
     let test = document.createElement("h5");        //Crea el titulo de la subtarea
     test.innerText=Name;//Agrega el Texto = Name
