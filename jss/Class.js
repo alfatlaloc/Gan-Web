@@ -117,7 +117,8 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
         /**
          Se dibuja la tarea hija dentro de la tarea padre
          */
-        Draw_Child(T_Father,T_SD,T_ED,T_Name,N_Task.getID());       
+        Draw_Child(T_Father,T_SD,T_ED,T_Name,N_Task.getID());
+            console.log("Elid es " + N_Task.getID());
         console.log(N_Task.getID());
     }
     hide_login();
@@ -138,10 +139,10 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     art.appendChild(document.createElement("br"));
     add_text_to_Draw_Task(art,T_ED);
     add_Progress_Bar(art);
-    add_Button_to_Task(art,'Advance','Advance');
     id=id+"childs";
+    let progress_bar = add_Button_to_Task(art,'Advance','Advance');
     let c = add_div(art,id);  //Agrega la divison de las subtareas
-    HoD_subTask(c,id);
+    HoD_subTask(art,c);
 }
 
 function add_Progress_Bar(Task){ //Añade una barra de progreso al elemento indicado
@@ -151,6 +152,7 @@ function add_Progress_Bar(Task){ //Añade una barra de progreso al elemento indi
     progress_bar.max=100;     //Valor maximo 100%
     progress_bar.value=0;      //Valor inicial a 0
     Task.appendChild(progress_bar);
+    return progress_bar;
 }
 
 function add_div(art,id){ //Agrega una división a un elemento
@@ -168,13 +170,11 @@ function add_div(art,id){ //Agrega una división a un elemento
 
 function HoD_subTask(art,id_st){ //Para mostrar/ocultar las subtareas
     let b = document.createElement("button"); //Crea un nuevo boton
-    let div_c =document.getElementById(id_st);  //Obtiene el div de subtareas 
     b.type="button";    //Tipo Button
     b.innerText="Show STasks";  //El estado inicial
     b.className='Advance';      //Para el css
-    b.onclick=function(){s_tasks(this,div_c)}; //Asigna la funcion que cambia el estado
-    art.parentNode.insertBefore(b,art);
-//    art.previousSibling.append(b); //Agrega al articulo de la Tarea
+    b.onclick=function(){s_tasks(this,id_st)}; //Asigna la funcion que cambia el estado
+    art.append(b);
 }
 
 function s_tasks(button,div_c){ //Cambia el botun de Mostrar/Ocultar Tareas
@@ -223,6 +223,6 @@ function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tar
     let boton_progreso =add_Button_to_Task(Task_Div,'Advance','Advance');   //Agrega el boton de avance
     div_c.appendChild(Task_Div);                    //Agrega la subtarea al espacio de subtareas
     _id=_id+"childs";
-    add_div(Task_Div,_id);
-    HoD_subTask(boton_progreso,_id);//Agrega el boton para mostrar los hijos;
+    let c = add_div(Task_Div,_id);
+    HoD_subTask(div_c,c);//Agrega el boton para mostrar los hijos;
 }
