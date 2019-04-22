@@ -107,6 +107,7 @@ return Task;
 function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
     let N_Task = new Task(T_Name,T_Father,T_SD,T_ED,T_Id); //Constructor de nueva Tarea
     proj.add_Task_to_Proyect(N_Task);
+    console.log(proj.getArray().length);
     console.log("Nombre: " + N_Task.getName());
     if(T_Father==="none")
     {
@@ -116,7 +117,8 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
         /**
          Se dibuja la tarea hija dentro de la tarea padre
          */
-        Draw_Child(T_Father,T_SD,T_ED,T_Name,N_Task.getID());
+        Draw_Child(T_Father,T_SD,T_ED,T_Name,N_Task.getID());       
+        console.log(N_Task.getID());
     }
     hide_login();
     reset_login();
@@ -126,6 +128,7 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     let art = document.createElement("article"); //Crea un articulo para la TASK y sus sub Task
     art.className="TASK"; //Clase TASK - CSS
     art.id=id;    //Asigna el id de la tarea principal al articulo
+    art.draggable="true";
     let titulo = document.createElement("h2");
     let tnode = document.createTextNode(T_Name);
     titulo.appendChild(tnode);
@@ -155,6 +158,7 @@ function add_div(art,id){ //Agrega una división a un elemento
     art.appendChild(C_div);
     C_div.id=id;
     C_div.className="TASK_Child";
+    C_div.draggable="true";
 /*    let test = document.createElement("h3");
     test.innerText="SubTasks";
     C_div.appendChild(test); */
@@ -191,6 +195,7 @@ function add_Button_to_Task(Task_of_button,text_b,class_b){
     boton_de_progreso.onclick = function() {advance(this,10)};
     //Task_of_button.appendChild(document.createElement("br"));
     Task_of_button.appendChild(boton_de_progreso);
+    return boton_de_progreso;
 }
 
 function add_text_to_Draw_Task(art,text) {// Agrega un texto a la tarea, Recibe el id de la tarea y el texto
@@ -202,7 +207,7 @@ function add_text_to_Draw_Task(art,text) {// Agrega un texto a la tarea, Recibe 
 
 
 function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tarea
-    //console.log(Father+'childs');    
+    console.log(Father+'childs');    
     let div_c = document.getElementById(Father+'childs'); //Obtiene el Div de los hijos de la tarea padre
     //div_c.setAttribute("style","display:inherit");  //Lo muestra al agregar una nueva subtarea
     let Task_Div = document.createElement("div");   //Crea una nueva division individual para cada tarea
@@ -210,10 +215,14 @@ function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tar
     test.innerText=Name;//Agrega el Texto = Name
     Task_Div.id=_id;
     Task_Div.appendChild(test); 
+    Task_Div.draggable="true";
     add_text_to_Draw_Task(Task_Div,T_SD);           //Agrega Fecha de incio
     Task_Div.appendChild(document.createElement("br"));
     add_text_to_Draw_Task(Task_Div,T_ED);           //Agrega fecha de Final
     add_Progress_Bar(Task_Div);                     //Agrega la barra de progreso de la subtarea
-    add_Button_to_Task(Task_Div,'Advance','Advance');   //Agrega el boton de avance
+    let boton_progreso =add_Button_to_Task(Task_Div,'Advance','Advance');   //Agrega el boton de avance
     div_c.appendChild(Task_Div);                    //Agrega la subtarea al espacio de subtareas
+    _id=_id+"childs";
+    add_div(Task_Div,_id);
+    HoD_subTask(boton_progreso,_id);//Agrega el boton para mostrar los hijos;
 }
