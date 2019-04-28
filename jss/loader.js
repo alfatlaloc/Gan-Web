@@ -4,6 +4,7 @@ const l = new Loader();
             l.require([
                 "jss/Proyect.js",
                 "jss/Class.js",
+                "jss/D&D.js",
                 "jss/extras.js"],
                 function() {
                     // Callback
