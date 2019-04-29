@@ -162,7 +162,11 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     let art = document.createElement("div"); //Crea un articulo para la TASK y sus sub Task
     art.className="TASK"; //Clase TASK - CSS
     art.id=id;    //Asigna el id de la tarea principal al articulo
-    art.draggable="true";
+
+    art.draggable = true;
+    art.setAttribute("ondrop", "drop(event)");
+    art.setAttribute("ondragover", " allowDrop(event)");
+
     let titulo = document.createElement("h2");
     let tnode = document.createTextNode(T_Name);
     titulo.appendChild(tnode);
@@ -246,7 +250,11 @@ function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tar
     let test = document.createElement("h5");        //Crea el titulo de la subtarea
     test.innerText=Name;//Agrega el Texto = Name
     Task_Div.id=_id;
-    Task_Div.appendChild(test); 
+    Task_Div.appendChild(test);
+
+    Task_Div.draggable = true;
+    Task_Div.setAttribute("ondragstart", "drag(event)");
+
 
     add_text_to_Draw_Task(Task_Div,T_SD);           //Agrega Fecha de incio
     Task_Div.appendChild(document.createElement("br"));
@@ -258,3 +266,4 @@ function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tar
     let c = add_div(Task_Div,_id);
     HoD_subTask(div_c,c);//Agrega el boton para mostrar los hijos;
 }
+
