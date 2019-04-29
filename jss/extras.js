@@ -21,6 +21,7 @@ function advance(element,avance){
     if(parseInt(progress_bar.value)>=100){
         progress_bar.className = "Task_F";
         progress_bar.value = 100;
+        tarea_a_avanzar.setProgress(progress_bar.value);
         element.remove();
     }else
         tarea_a_avanzar.setProgress(progress_bar.value);
@@ -31,6 +32,7 @@ function advance(element,avance){
         let padre = TaskbyId(tarea_a_avanzar.getFather().getID());
         let no_hijos = padre.getchildrencount();
         padre.addProgress(avance/no_hijos);
+        console.log(avance/no_hijos);
     }
 }
 

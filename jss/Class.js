@@ -20,12 +20,29 @@ const Task = (function() {
       constructor(T_Name,T_Father,T_SD,T_ED,T_ID) { //Construye el objeto con los valores definidos
           _Name.set(this, T_Name);
           let _children = [];
+          /**
+           * Funciones del padre
+           * @param son
+           */
+          this.getChildren = function(){
+              return _children;
+          }
+          ;
           this.addChildren = function(son){
-              _children.push(son)
+              _children.push(son);
           };
           this.getchildrencount = function(){
               return _children.length;
           };
+          /**
+           * Termina funciones del padre
+           */
+          _ID.set(this,T_ID);
+          _Start_Day.set(this, T_SD);
+          _End_Day.set(this, T_ED);
+          _Progress.set(this, 0);
+          contador++;
+
           if(T_Father === "none"){
               console.log("no padre");
               this[_Father] = null;
@@ -38,13 +55,22 @@ const Task = (function() {
               this[_Father] = TaskbyId(T_Father);
 
               this[_Father].addChildren(this);
+              /**
+               * Se modifica el progreso del padre al agregar un hijo
+               */
+              if(this[_Father].getchildrencount() > 0 ){
+                  let nuevo_progreso = 0;
+                  let arreglo_de_hijos = this[_Father].getChildren();
+                  for(let x=0; x<this[_Father].getchildrencount(); x++){
+                      console.log('progreso hijo '+ x + ': '+  arreglo_de_hijos[x].getProgress());
+                     nuevo_progreso += arreglo_de_hijos[x].getProgress();
+                  }
+                  nuevo_progreso /= this[_Father].getchildrencount();
+                  this[_Father].setProgress(nuevo_progreso);
+              }
 
           }
-          _ID.set(this,T_ID);
-          _Start_Day.set(this, T_SD);
-          _End_Day.set(this, T_ED);
-          _Progress.set(this, 0);
-          contador++;
+
 
       } //End Constructor
 
@@ -85,13 +111,21 @@ const Task = (function() {
           return _Progress.get(this);
       }
       setProgress(number){
+          let progress_bar = document.getElementById("barra"+this.getID());
+          if(progress_bar.value >= 99.99)
+              progress_bar.className = "";
           _Progress.set(this, number);
+          progress_bar.value = this.getProgress();
+
       }
       addProgress(progress){
-          console.log("progreso: " + progress);
-          _Progress.set(this, parseInt(this.getProgress()) + parseInt(progress));
+          //
+          _Progress.set(this, this.getProgress() + progress);
           let progress_bar = document.getElementById("barra"+this.getID());
+          console.log("progreso del padre: " + this.getProgress());
           progress_bar.value = this.getProgress();
+          if(progress_bar.value >= 99.99)
+              progress_bar.className = "Task_F";
       }
 
       getFather(){
@@ -118,8 +152,7 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
          Se dibuja la tarea hija dentro de la tarea padre
          */
         Draw_Child(T_Father,T_SD,T_ED,T_Name,N_Task.getID());
-            console.log("Elid es " + N_Task.getID());
-        console.log(N_Task.getID());
+
     }
     hide_login();
     reset_login();
@@ -207,7 +240,6 @@ function add_text_to_Draw_Task(art,text) {// Agrega un texto a la tarea, Recibe 
 
 
 function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tarea
-    console.log(Father+'childs');    
     let div_c = document.getElementById(Father+'childs'); //Obtiene el Div de los hijos de la tarea padre
     //div_c.setAttribute("style","display:inherit");  //Lo muestra al agregar una nueva subtarea
     let Task_Div = document.createElement("div");   //Crea una nueva division individual para cada tarea
@@ -215,8 +247,7 @@ function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tar
     test.innerText=Name;//Agrega el Texto = Name
     Task_Div.id=_id;
     Task_Div.appendChild(test); 
-    Task_Div.draggable="true";
-    Task_Div.ondragend=drag(this);
+
     add_text_to_Draw_Task(Task_Div,T_SD);           //Agrega Fecha de incio
     Task_Div.appendChild(document.createElement("br"));
     add_text_to_Draw_Task(Task_Div,T_ED);           //Agrega fecha de Final
