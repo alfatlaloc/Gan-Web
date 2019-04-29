@@ -113,7 +113,7 @@ const Task = (function() {
       setProgress(number){
           let progress_bar = document.getElementById("barra"+this.getID());
           if(progress_bar.value >= 99.99)
-              progress_bar.className = "";
+                              progress_bar.className = "Task_F";
           _Progress.set(this, number);
           progress_bar.value = this.getProgress();
 
@@ -124,8 +124,11 @@ const Task = (function() {
           let progress_bar = document.getElementById("barra"+this.getID());
           console.log("progreso del padre: " + this.getProgress());
           progress_bar.value = this.getProgress();
-          if(progress_bar.value >= 99.99)
-              progress_bar.className = "Task_F";
+          if(progress_bar.value>=100){
+                progress_bar.className = "Task_F";
+            progress_bar.value = 100;
+              
+          }
       }
 
       getFather(){
@@ -152,7 +155,7 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
          Se dibuja la tarea hija dentro de la tarea padre
          */
         Draw_Child(T_Father,T_SD,T_ED,T_Name,N_Task.getID());
-
+        document.getElementById("barra"+T_Father).className="";
     }
     hide_login();
     reset_login();
