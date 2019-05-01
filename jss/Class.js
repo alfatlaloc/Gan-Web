@@ -201,9 +201,6 @@ function add_div(art,id){ //Agrega una división a un elemento
     C_div.id=id;
     C_div.className="TASK_Child";
     C_div.draggable="true";
-/*    let test = document.createElement("h3");
-    test.innerText="SubTasks";
-    C_div.appendChild(test); */
     C_div.setAttribute("style","display:none");   
     return C_div;
 }
@@ -214,7 +211,7 @@ function HoD_subTask(art,id_st){ //Para mostrar/ocultar las subtareas
     b.innerText="Show STasks";  //El estado inicial
     b.className='Advance';      //Para el css
     b.onclick=function(){s_tasks(this,id_st)}; //Asigna la funcion que cambia el estado
-    art.append(b);
+    art.appendChild(b);
 }
 
 function s_tasks(button,div_c){ //Cambia el botun de Mostrar/Ocultar Tareas
@@ -267,6 +264,11 @@ function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tar
     div_c.appendChild(Task_Div);                    //Agrega la subtarea al espacio de subtareas
     _id=_id+"childs";
     let c = add_div(Task_Div,_id);
-    HoD_subTask(div_c,c);//Agrega el boton para mostrar los hijos;
+   let b = document.createElement("button"); //Crea un nuevo boton
+    b.type="button";    //Tipo Button
+    b.innerText="Show STasks";  //El estado inicial
+    b.className='Advance';      //Para el css
+    b.onclick=function(){s_tasks(this,c)}; //Asigna la funcion que cambia el estado
+    boton_progreso.parentNode.insertBefore(b,boton_progreso);
 }
 

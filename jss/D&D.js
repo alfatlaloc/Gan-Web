@@ -15,6 +15,7 @@ function drop(ev) {
      ev.preventDefault();
      // Get the data, which is the id of the drop target
      let data = ev.dataTransfer.getData("text/plain");
+    document.getElementById(data).className="TASK";
      ev.target.appendChild(document.getElementById(data));
      // Clear the drag data cache (for all formats/types)
      ev.dataTransfer.clearData();
