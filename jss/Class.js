@@ -134,7 +134,10 @@ const Task = (function() {
       getFather(){
           return this[_Father];
       }
-
+      
+      setFather(fat){
+          this[_Father]=fat;
+      }
 
   }
 return Task;
@@ -245,17 +248,13 @@ function add_text_to_Draw_Task(art,text) {// Agrega un texto a la tarea, Recibe 
 
 function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tarea
     let div_c = document.getElementById(Father+'childs'); //Obtiene el Div de los hijos de la tarea padre
-    //div_c.setAttribute("style","display:inherit");  //Lo muestra al agregar una nueva subtarea
     let Task_Div = document.createElement("div");   //Crea una nueva division individual para cada tarea
     let test = document.createElement("h5");        //Crea el titulo de la subtarea
     test.innerText=Name;//Agrega el Texto = Name
     Task_Div.id=_id;
     Task_Div.appendChild(test);
-
     Task_Div.draggable = true;
     Task_Div.setAttribute("ondragstart", "drag(event)");
-
-
     add_text_to_Draw_Task(Task_Div,T_SD);           //Agrega Fecha de incio
     Task_Div.appendChild(document.createElement("br"));
     add_text_to_Draw_Task(Task_Div,T_ED);           //Agrega fecha de Final

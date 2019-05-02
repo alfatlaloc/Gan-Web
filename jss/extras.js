@@ -18,7 +18,6 @@ function advance(element,avance){
     console.log(element.parentNode.id);
     let tarea_a_avanzar = TaskbyId(element.parentNode.id.toString());
     let progress_bar = element.previousSibling;
-    
     if(tarea_a_avanzar.getFather() == null){
         progress_bar.value = progress_bar.value+avance;
         tarea_a_avanzar.setProgress(progress_bar.value);

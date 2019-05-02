@@ -15,8 +15,17 @@ function drop(ev) {
      ev.preventDefault();
      // Get the data, which is the id of the drop target
      let data = ev.dataTransfer.getData("text/plain");
-    document.getElementById(data).className="TASK";
+     
+     let elemento = document.getElementById(data); //Obtiene el elemento que sera movido
+
      ev.target.appendChild(document.getElementById(data));
      // Clear the drag data cache (for all formats/types)
+    if(ev.target.id=="TASK_area"){          //Si se lleva a TaskArea
+        TaskbyId(elemento.id).setFather(null);
+        elemento.className="TASK"; //Cambio de clase a Tarea Padre
+        fillSelect();
+    }else{
+        elemento.className="";
+    }
      ev.dataTransfer.clearData();
 }
