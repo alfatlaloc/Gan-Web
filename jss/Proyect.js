@@ -32,4 +32,4 @@ return Proyect;
 function Tasks_Info(){
     console.log("Corri");
 
-};
+}

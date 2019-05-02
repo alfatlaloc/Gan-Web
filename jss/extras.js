@@ -25,13 +25,24 @@ function advance(element,avance){
         console.log("tarea a avanzar " + tarea_a_avanzar.getName() + " " + tarea_a_avanzar.getFather().getName() + " es el padre");
         let padre = TaskbyId(tarea_a_avanzar.getFather().getID());
         let no_hijos = padre.getchildrencount();
-        padre.addProgress(avance/no_hijos);
-        tarea_a_avanzar.addProgress(avance);
-        console.log(avance/no_hijos);
+        if(padre.getProgress() <100){
+            padre.addProgress(avance/no_hijos);
+            tarea_a_avanzar.addProgress(avance);
+            console.log(avance/no_hijos);
+        }
+
     }
 }
 
-function fatherAdvance(){
+function changeFather_NewProgres(tareaPadre) {
+        let nuevo_progreso = 0;
+        let arreglo_de_hijos = tareaPadre.getChildren();
+        for(let x=0; x<tareaPadre.getchildrencount(); x++){
+            console.log('progreso hijo '+ x + ': '+  arreglo_de_hijos[x].getProgress());
+            nuevo_progreso += arreglo_de_hijos[x].getProgress();
+        }
+        nuevo_progreso /= tareaPadre.getchildrencount();
+        tareaPadre.setProgress(nuevo_progreso);
 
 }
 

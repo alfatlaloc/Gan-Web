@@ -26,8 +26,13 @@ const Task = (function() {
            */
           this.getChildren = function(){
               return _children;
-          }
-          ;
+          };
+          this.dropChildren = function (tareaAborrar) {
+              let index = _children.indexOf(tareaAborrar);
+              if (index > -1) {
+                  _children.splice(index, 1);
+              }
+          };
           this.addChildren = function(son){
               _children.push(son);
           };
@@ -59,14 +64,8 @@ const Task = (function() {
                * Se modifica el progreso del padre al agregar un hijo
                */
               if(this[_Father].getchildrencount() > 0 ){
-                  let nuevo_progreso = 0;
-                  let arreglo_de_hijos = this[_Father].getChildren();
-                  for(let x=0; x<this[_Father].getchildrencount(); x++){
-                      console.log('progreso hijo '+ x + ': '+  arreglo_de_hijos[x].getProgress());
-                     nuevo_progreso += arreglo_de_hijos[x].getProgress();
-                  }
-                  nuevo_progreso /= this[_Father].getchildrencount();
-                  this[_Father].setProgress(nuevo_progreso);
+                  changeFather_NewProgres(this[_Father]);
+
               }
 
           }
@@ -147,7 +146,6 @@ return Task;
 function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
     let N_Task = new Task(T_Name,T_Father,T_SD,T_ED,T_Id); //Constructor de nueva Tarea
     proj.add_Task_to_Proyect(N_Task);
-    console.log(proj.getArray().length);
     console.log("Nombre: " + N_Task.getName());
     if(T_Father==="none")
     {
@@ -182,7 +180,7 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     art.appendChild(document.createElement("br"));
     add_text_to_Draw_Task(art,T_ED);
     add_Progress_Bar(art);
-    id=id+"childs";
+    id=id+"childs"; // id del div de las tareas hijas
     let progress_bar = add_Button_to_Task(art,'Advance','Advance');
     let c = add_div(art,id);  //Agrega la divison de las subtareas
     HoD_subTask(art,c);
@@ -203,7 +201,7 @@ function add_div(art,id){ //Agrega una división a un elemento
     art.appendChild(C_div);
     C_div.id=id;
     C_div.className="TASK_Child";
-    C_div.draggable="true";
+    C_div.draggable=true;
     C_div.setAttribute("style","display:none");   
     return C_div;
 }
@@ -255,13 +253,14 @@ function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tar
     Task_Div.appendChild(test);
     Task_Div.draggable = true;
     Task_Div.setAttribute("ondragstart", "drag(event)");
+    Task_Div.className="TASK";
     add_text_to_Draw_Task(Task_Div,T_SD);           //Agrega Fecha de incio
     Task_Div.appendChild(document.createElement("br"));
     add_text_to_Draw_Task(Task_Div,T_ED);           //Agrega fecha de Final
     add_Progress_Bar(Task_Div);                     //Agrega la barra de progreso de la subtarea
     let boton_progreso =add_Button_to_Task(Task_Div,'Advance','Advance');   //Agrega el boton de avance
     div_c.appendChild(Task_Div);                    //Agrega la subtarea al espacio de subtareas
-    _id=_id+"childs";
+    _id=_id+"childs"; // id del div de las tareas hijas de la tarea hija
     let c = add_div(Task_Div,_id);
    let b = document.createElement("button"); //Crea un nuevo boton
     b.type="button";    //Tipo Button
