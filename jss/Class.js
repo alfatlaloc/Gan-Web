@@ -31,6 +31,7 @@ const Task = (function() {
               let index = _children.indexOf(tareaAborrar);
               if (index > -1) {
                   _children.splice(index, 1);
+
               }
           };
           this.addChildren = function(son){

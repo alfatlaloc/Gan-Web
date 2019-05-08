@@ -41,7 +41,8 @@ function changeFather_NewProgres(tareaPadre) {
             console.log('progreso hijo '+ x + ': '+  arreglo_de_hijos[x].getProgress());
             nuevo_progreso += arreglo_de_hijos[x].getProgress();
         }
-        nuevo_progreso /= tareaPadre.getchildrencount();
+        if(tareaPadre.getchildrencount()!==0)
+            nuevo_progreso /= tareaPadre.getchildrencount();
         tareaPadre.setProgress(nuevo_progreso);
 
 }

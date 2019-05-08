@@ -25,6 +25,7 @@ function drop(ev) {
         let anteriorPadre = TaskbyId(anteriorPadreDiv.id);
 
         anteriorPadre.dropChildren(TaskbyId(elemento.id));
+        changeFather_NewProgres(anteriorPadre);
     }
 
      ev.target.appendChild(document.getElementById(data));
