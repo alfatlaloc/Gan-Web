@@ -20,9 +20,9 @@ function drop(ev) {
     let elemento = document.getElementById(data); //Obtiene el elemento que sera movido
 
     let anteriorPadreDiv = elemento.parentNode.parentNode;
-        let anteriorPadre = TaskbyId(anteriorPadreDiv.id);
 
     if(elemento.parentNode.id !== "TASK_area"){
+        let anteriorPadre = TaskbyId(anteriorPadreDiv.id);
 
         anteriorPadre.dropChildren(TaskbyId(elemento.id));
         changeFather_NewProgres(anteriorPadre);
@@ -49,10 +49,8 @@ function drop(ev) {
         changeFather_NewProgres(nPadre);
     }
     
-    
-    if(anteriorPadre.getchildrencount()===0)
-    {
-        document.getElementById("Advance"+anteriorPadre.getID()).setAttribute("style","display:in-line");
+    if(TaskbyId(elemento.id).getfather().getchildrencount()==0){
+        document.getElementById("Advance"+TaskbyId(elemento.id).getFather().getId()).setAttribute("style","display:in-line");
     }
      ev.dataTransfer.clearData();
 }
