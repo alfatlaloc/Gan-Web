@@ -156,6 +156,7 @@ function New_Task(T_Name,T_Father,T_SD,T_ED,T_Id){
          Se dibuja la tarea hija dentro de la tarea padre
          */
         Draw_Child(T_Father,T_SD,T_ED,T_Name,N_Task.getID());
+        document.getElementById("Advance"+T_Father).setAttribute("style","display:none");
         document.getElementById("barra"+T_Father).className="";
     }
     hide_login();
@@ -166,11 +167,9 @@ function Draw_Task(T_Name,T_SD,T_ED, id){
     let art = document.createElement("div"); //Crea un articulo para la TASK y sus sub Task
     art.className="TASK"; //Clase TASK - CSS
     art.id=id;    //Asigna el id de la tarea principal al articulo
-
     art.draggable = true;
     art.setAttribute("ondrop", "drop(event)");
     art.setAttribute("ondragover", " allowDrop(event)");
-
     let titulo = document.createElement("h2");
     let tnode = document.createTextNode(T_Name);
     titulo.appendChild(tnode);
@@ -228,6 +227,7 @@ function s_tasks(button,div_c){ //Cambia el botun de Mostrar/Ocultar Tareas
 function add_Button_to_Task(Task_of_button,text_b,class_b){
     let boton_de_progreso = document.createElement("button");
     boton_de_progreso.type = "button";
+    boton_de_progreso.id=text_b+Task_of_button.id;
     boton_de_progreso.innerText = text_b;
     boton_de_progreso.className = class_b;
     boton_de_progreso.onclick = function() {advance(this,10)};
@@ -253,7 +253,7 @@ function Draw_Child(Father,T_SD,T_ED,Name,_id){ //DIbuja al hjo dentro de la tar
     Task_Div.appendChild(test);
     Task_Div.draggable = true;
     Task_Div.setAttribute("ondragstart", "drag(event)");
-    Task_Div.className="TASK";
+    Task_Div.className="";
     add_text_to_Draw_Task(Task_Div,T_SD);           //Agrega Fecha de incio
     Task_Div.appendChild(document.createElement("br"));
     add_text_to_Draw_Task(Task_Div,T_ED);           //Agrega fecha de Final

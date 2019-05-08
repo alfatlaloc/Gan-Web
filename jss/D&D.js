@@ -36,7 +36,7 @@ function drop(ev) {
     }else if(ev.target.className === 'TASK_Child'){
 
         let nPadreDiv = ev.target.parentNode;
-
+        elemento.className="";
         console.log(nPadreDiv.id);
 
         let nPadre =  TaskbyId(nPadreDiv.id);
